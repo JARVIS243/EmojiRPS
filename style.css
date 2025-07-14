@@ -1,0 +1,218 @@
+/* Fonts & Reset */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat:wght@400;600&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+  color: #f5f5f5;
+  text-align: center;
+  padding: 2rem;
+  transition: all 0.4s ease;
+}
+
+/* Sidebar Controls */
+.sidebar {
+  position: fixed;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  z-index: 10;
+  align-items: center;
+}
+.sidebar button {
+  background: #0ff2;
+  color: #0ff;
+  border: 1px solid #0ff;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 8px #0ff;
+  transition: all 0.3s ease;
+}
+.sidebar button:hover {
+  background: #0ff;
+  color: #000;
+  box-shadow: 0 0 16px #0ff;
+}
+.sidebar label {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  color: #0ff;
+  font-weight: 600;
+}
+.sidebar select {
+  margin-top: 0.2rem;
+  padding: 0.3rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid #00ffff88;
+  background: #000;
+  color: #0ff;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+}
+body.dark .sidebar button {
+  background: #ffffff22;
+  color: #eee;
+  border: 1px solid #fff;
+}
+body.dark .sidebar select {
+  background: #111;
+  color: #fff;
+  border: 1px solid #ffffff55;
+}
+
+/* Game Container */
+.game-container {
+  max-width: 460px;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Title */
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  color: #00fff0;
+  text-shadow: 0 0 8px #00fff0;
+  margin-bottom: 1.5rem;
+}
+
+/* Emoji Buttons */
+.choices {
+  margin-top: 1rem;
+}
+.choices button {
+  font-size: 2.8rem;
+  margin: 0.7rem;
+  padding: 1rem;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #fff;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  animation: pulseGlow 2s infinite alternate;
+}
+.choices button:hover {
+  transform: scale(1.2) rotate(-5deg);
+  box-shadow: 0 0 16px #0ff, 0 0 28px #0ff inset;
+}
+.choices button:active {
+  transform: scale(0.95);
+}
+
+/* Player & Computer Choices */
+#player-choice,
+#computer-choice {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0.6rem 0;
+  text-shadow: 0 0 4px #0ff;
+}
+
+/* VS Flash Animation */
+#vs-flash {
+  font-size: 1.6rem;
+  color: #00ffff;
+  text-shadow: 0 0 10px #0ff;
+  opacity: 0;
+}
+#vs-flash.show {
+  animation: flashVS 0.6s ease forwards;
+}
+@keyframes flashVS {
+  0% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.4); }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+/* Result Display */
+.result {
+  margin-top: 1.2rem;
+}
+.result h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #00ffc8;
+  text-shadow: 0 0 8px #00ffc8;
+  margin-top: 0.4rem;
+}
+
+/* Scoreboard & Streaks */
+.scoreboard,
+.streaks {
+  margin-top: 1.2rem;
+  padding: 0.8rem;
+  border-radius: 12px;
+  border: 1px solid #00ffea44;
+  background: rgba(0, 255, 255, 0.07);
+  box-shadow: 0 0 10px #00ffee33;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.streaks p,
+.scoreboard p {
+  margin: 0.3rem;
+}
+
+/* Pulse Animation */
+@keyframes pulseGlow {
+  from {
+    box-shadow: 0 0 12px #00ffff, 0 0 25px #00ffff inset;
+  }
+  to {
+    box-shadow: 0 0 25px #00ffff, 0 0 35px #00ffff inset;
+  }
+}
+
+/* Dark Mode */
+body.dark {
+  background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+  color: #f5f5f5;
+}
+body.dark .game-container {
+  background: rgba(20, 20, 20, 0.6);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+body.dark h1,
+body.dark .result h2,
+body.dark #player-choice,
+body.dark #computer-choice {
+  color: #00ffff;
+}
+body.dark .scoreboard,
+body.dark .streaks {
+  border: 1px solid #ffffff33;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .choices button {
+    font-size: 2.2rem;
+    padding: 0.9rem;
+  }
+  .sidebar {
+    left: 5px;
+  }
+  .sidebar select {
+    font-size: 0.85rem;
+    padding: 0.2rem;
+  }
+}

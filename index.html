@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emoji RPS – Rock Paper Scissors</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/image/logo.png" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <button onclick="resetGame()" title="Reset Game">🔁</button>
+    <button id="muteToggle" title="Mute / Unmute">🔊</button>
+    <button id="darkToggle" title="Toggle Dark Mode">🌙</button>
+    <label for="targetScoreSelect">🎯 First to</label>
+    <select id="targetScoreSelect" title="Select Winning Score">
+     <option value="3">3</option>
+     <option value="5" selected>5</option>
+     <option value="10">10</option>
+     <option value="15">15</option>
+     <option value="20">20</option>
+    </select>
+  </div>
+
+  <!-- Main Game UI -->
+  <div class="game-container">
+    <h1>🎮 Emoji RPS</h1>
+
+    <div class="choices">
+      <button onclick="clickSound.play(); play('rock')">✊</button>
+      <button onclick="clickSound.play(); play('paper')">✋</button>
+      <button onclick="clickSound.play(); play('scissors')">✌️</button>
+    </div>
+
+    <div class="result">
+      <p id="player-choice">You: ❓</p>
+      <p id="vs-flash">⚡ VS ⚡</p>
+      <p id="computer-choice">Computer: ❓</p>
+      <h2 id="outcome">Let's play!</h2>
+    </div>
+
+    <div class="scoreboard">
+      <p>🧍 You: <span id="player-score">0</span></p>
+      <p>💻 Computer: <span id="computer-score">0</span></p>
+    </div>
+
+    <div class="streaks">
+      <p>🔥 Streak: <span id="streak">0</span></p>
+      <p>🏆 High Score: <span id="highscore">0</span></p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</body>
+</html>

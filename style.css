@@ -216,3 +216,11 @@ body.dark .streaks {
     padding: 0.2rem;
   }
 }
+
+/* === Footer === */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 40px;
+}

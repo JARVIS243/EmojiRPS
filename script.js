@@ -66,10 +66,10 @@ function play(playerMove) {
 
     // End game if target score reached
     if (playerScore >= targetScore) {
-      document.getElementById("outcome").textContent = "🏆 You reached the target!";
+      document.getElementById("outcome").textContent = "🏆 You are Amazing Really Amazing!";
       gameOver = true;
     } else if (computerScore >= targetScore) {
-      document.getElementById("outcome").textContent = "💀 Computer reached the target!";
+      document.getElementById("outcome").textContent = "💀 BRO You Cooked!";
       gameOver = true;
     }
 
